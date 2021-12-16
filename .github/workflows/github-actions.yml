@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Ansible ready to go
-        uses: garethsd-cloudreach/ansible-playbook-demo
+        uses: garethsd-cloudreach/ansible-playbook-demo/playbook.yml
         with: 
           playbook: playbook.yml
           key: "ta-lab-ansible-key"
