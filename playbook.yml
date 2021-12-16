@@ -3,11 +3,24 @@
   become: yes
   gather_facts: no
   tasks:
+    - name: Enable Nginx on instance
+      command: sudo amazon-linux-extras enable nginx1
+
     - name: Update apt cache and install Nginx
       yum:
         name: nginx
         state: latest
         update_cache: yes
+
+    - name: Create an empty file
+      file: 
+        path: /etc/nginx/sites-available/default
+        state: directory
+
+    - name: Create an empty file
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: directory
 
     - name: Copy website files to the server's document root
       copy:
